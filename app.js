@@ -3,7 +3,6 @@ const { config } = require('dotenv');
 const { database } = require('./database');
 const expressLayouts = require('express-ejs-layouts');
 
-
 const app = express();
 
 config();
@@ -19,4 +18,4 @@ app.use(express.urlencoded({extended: true}));
 
 app.listen(process.env.APP_PORT, () => {
     console.log(`Server started on http://localhost:${process.env.APP_PORT}`);
-})
+});

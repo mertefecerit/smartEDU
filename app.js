@@ -2,7 +2,7 @@ const express = require('express');
 const { config } = require('dotenv');
 const { database } = require('./database');
 const expressLayouts = require('express-ejs-layouts');
-
+const Routers = require('./routers');
 const app = express();
 
 config();
@@ -15,6 +15,9 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(expressLayouts);
 app.use(express.urlencoded({extended: true}));
+
+//Routers
+app.use('/', Routers.PublicRouter);
 
 app.listen(process.env.APP_PORT, () => {
     console.log(`Server started on http://localhost:${process.env.APP_PORT}`);

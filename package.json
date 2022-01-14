@@ -1,0 +1,27 @@
+{
+  "name": "smartedu",
+  "version": "1.0.0",
+  "description": "Education Portal",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mertefecerit/smartEDU.git"
+  },
+  "author": "Mert Efe Cerit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mertefecerit/smartEDU/issues"
+  },
+  "homepage": "https://github.com/mertefecerit/smartEDU#readme",
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

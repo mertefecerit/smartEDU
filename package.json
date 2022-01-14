@@ -4,7 +4,7 @@
   "description": "Education Portal",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,9 @@
   "homepage": "https://github.com/mertefecerit/smartEDU#readme",
   "dependencies": {
     "dotenv": "^11.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.2",
+    "express-ejs-layouts": "^2.5.1",
     "mongoose": "^6.1.6"
   },
   "devDependencies": {

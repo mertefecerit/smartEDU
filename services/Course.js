@@ -12,18 +12,8 @@ const insert = async (payload) => {
     return await CourseModel.create(payload);
 }
 
-const deleteOne = async (id) => {
-    return await CourseModel.findByIdAndDelete(id);
-}
-
-const update = async (payload) => {
-    return await CourseModel.findOneAndUpdate(payload);
-}
-
 module.exports = {
     read,
     readAll,
-    insert,
-    update,
-    deleteOne
+    insert
 }

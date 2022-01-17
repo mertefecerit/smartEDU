@@ -19,8 +19,10 @@ app.use(express.urlencoded({extended: true}));
 
 //Routers
 app.use('/', Routers.PublicRouter);
-app.use('/courses',Routers.CourseRouter);
-app.use('/categories',Routers.CategoryRouter);
+//app.use('/courses',Routers.CourseRouter);
+//app.use('/categories',Routers.CategoryRouter);
+app.use('/user',Routers.UserRouter);
+
 
 app.listen(process.env.APP_PORT, () => {
     console.log(`Server started on http://localhost:${process.env.APP_PORT}`);

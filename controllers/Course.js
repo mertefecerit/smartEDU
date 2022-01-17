@@ -65,7 +65,7 @@ const update = (req, res) => {
 }
 
 const getOne = (req, res) => {
-    CourseServices.read(req.params.id)
+    CourseServices.read(req.params.slug)
     .then(response => {
         const locals = {
             title: response.name

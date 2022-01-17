@@ -1,7 +1,7 @@
 const CourseModel = require('../models/Course');
 
-const read = async (id) => {
-    return await CourseModel.findById(id);
+const read = async (slug) => {
+    return await CourseModel.findOne({slug});
 }
 
 const readAll = async () => {

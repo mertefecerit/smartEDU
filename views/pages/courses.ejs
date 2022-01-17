@@ -7,11 +7,11 @@
                 <% courses.forEach(course => { %>
                  <div class="col-lg-4">
                     <div class="card my-2">
-                        <img src="/uploads/images/<%= course.img %> " class="card-img-top" alt="">
+                        <img src="https://via.placeholder.com/200x100" class="card-img-top" alt="">
                         <div class="card-body">
                           <h5 class="card-title"><%= course.name %> </h5>
                           <p class="card-text"><%= course.desc %> </p>
-                          <a href="/courses/detail/<%= course.id %> " class="btn btn-primary">Ayrıntılar</a>
+                          <a href="/courses/detail/<%= course.slug %> " class="btn btn-primary">Ayrıntılar</a>
                         </div>
                       </div>
                  </div>

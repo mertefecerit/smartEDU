@@ -1,6 +1,7 @@
 const Mongoose = require('mongoose');
-const Schema = Mongoose.Schema;
+const slugify = require('slugify');
 
+const Schema = Mongoose.Schema;
 const CourseSchema = new Schema({
     name: {
         type: String,
@@ -13,11 +14,20 @@ const CourseSchema = new Schema({
         required: String,
         trim:true,
     },
-    img: {
+    slug: {
         type: String,
-        required: true
-    },
+        unique: true,
+    }
 },{versionKey:false, timestamps:true});
 
+CourseSchema.pre('validate', function(next){
+    this.slug = slugify(this.name,{
+        replacement: '-',
+        lower: true,
+        strict: true,
+        trim: true
+    });
+    next();
+});
 
 module.exports = Mongoose.model('Course', CourseSchema);

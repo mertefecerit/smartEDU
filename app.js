@@ -14,10 +14,12 @@ app.set('view engine', 'ejs');
 // Middlewares
 app.use(express.static('public'));
 app.use(expressLayouts);
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //Routers
 app.use('/', Routers.PublicRouter);
+app.use('/course',Routers.CourseRouter);
 
 app.listen(process.env.APP_PORT, () => {
     console.log(`Server started on http://localhost:${process.env.APP_PORT}`);

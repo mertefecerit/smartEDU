@@ -17,7 +17,7 @@ const deleteOne = async (id) => {
 }
 
 const update = async (payload) => {
-    return await CourseModel.findByIdAndUpdate(payload);
+    return await CourseModel.findOneAndUpdate(payload);
 }
 
 module.exports = {

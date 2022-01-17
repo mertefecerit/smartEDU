@@ -1,13 +1,7 @@
 const CategoryModel = require('../models/Category');
-const CourseModel = require('../models/Course');
 
 const read = async (slug) => {
-    const category = await CategoryModel.findOne({slug});
-    let courses = await CourseModel.find({category:category._id});
-    return {
-        ...category._doc,
-        courses
-    }
+    return await CategoryModel.findOne({slug});
 }
 
 const readAll = async () => {

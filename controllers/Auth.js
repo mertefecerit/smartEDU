@@ -7,9 +7,10 @@ const login = async (req, res) => {
         const user = await UserService.read(email);
         const pass = await bcrypt.compare(password, user.password);
         if(user && pass){
-            return res.render('index');
+            req.session.userID = user.id;
+            return res.redirect('/');
         }else{
-            return res.render('pages/user/login');
+            return res.redirect('/user/login');
         }
     }catch(err){
         res.status(400).send("An Error Occured. : " + err);
@@ -18,7 +19,7 @@ const login = async (req, res) => {
 }
 
 const logout = (req, res) => {
-
+    req.session.destroy(()=>res.redirect('/'));
 }
 
 module.exports = {

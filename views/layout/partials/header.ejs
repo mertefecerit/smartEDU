@@ -10,27 +10,21 @@
                       <a class="nav-link text-light" href="/">HOME</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light" href="#">ABOUT US</a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link text-light" href="#">COURSES</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light" href="#">BLOG</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">TEACHERS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">PRICING</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">CONTACT</a>
-                    </li>
+                    <% if (userIn) { %>
+                      <li class="nav-item">
+                        <a class="nav-link text-light" href="#">DASHBOARD</a>
+                      </li>
+                      <li class="nav-item d-flex gap-3 align-items-center">
+                        <a href="/user/logout" class="btn btn-sm btn-light fw-bold"><i class="fas fa-sign-out-alt"></i></a>
+                      </li>
+                    <% } else { %>
                     <li class="nav-item d-flex gap-3 align-items-center">
                         <a href="/user/login" class="btn btn-sm btn-light fw-bold"><i class="fas fa-sign-in-alt"></i></a>
                         <a href="/user/register" class="btn btn-sm btn-light fw-bold"><i class="fas fa-user-plus"></i></a>
                     </li>
+                    <% } %>
                   </ul>
             </div>
         </div>

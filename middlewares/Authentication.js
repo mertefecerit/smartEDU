@@ -1,4 +1,4 @@
-const Auth = (req, res, next) => {
+const authorization = (req, res, next) => {
     if(req.session.userID){
         return next();
     }
@@ -11,6 +11,6 @@ const hasLoggedIn = (req, res, next) => {
 }
 
 module.exports = {
-    Auth,
+    authorization,
     hasLoggedIn
 };

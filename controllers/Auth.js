@@ -8,7 +8,7 @@ const login = async (req, res) => {
         const pass = await bcrypt.compare(password, user.password);
         if(user && pass){
             req.session.userID = user.id;
-            return res.redirect('/');
+            return res.redirect('/user/dashboard');
         }else{
             return res.redirect('/user/login');
         }

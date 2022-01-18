@@ -6,6 +6,9 @@ const registerPage = (req, res) => {
 const loginPage = (req, res) => {
     res.render('pages/user/login');
 }
+const dashboardPage = (req, res) => {
+    res.render('pages/user/dashboard', {layout: 'layout/dashboard'});
+}
 
 const createProcess = async (req, res) => {
     try{
@@ -19,5 +22,6 @@ const createProcess = async (req, res) => {
 module.exports = {
     registerPage,
     loginPage,
-    createProcess
+    createProcess,
+    dashboardPage
 }

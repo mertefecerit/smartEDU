@@ -4,7 +4,7 @@ const { database } = require('./database');
 const expressLayouts = require('express-ejs-layouts');
 const Routers = require('./routers');
 const session = require('express-session');
-const Authorization = require('./middlewares/Authorization');
+const Authentication = require('./middlewares/Authentication');
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
 }));
-app.use(Authorization.hasLoggedIn);
+app.use(Authentication.hasLoggedIn);
 
 //Routers
 app.use('/', Routers.PublicRouter);

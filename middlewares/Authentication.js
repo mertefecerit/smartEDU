@@ -1,12 +1,12 @@
 const authorization = (req, res, next) => {
-    if(req.session.userID){
+    if(req.session.user){
         return next();
     }
     return res.redirect('/user/login');
 }
 
 const hasLoggedIn = (req, res, next) => {
-    global.userIn = req.session.userID || false;
+    global.user = req.session.user || false;
     next();
 }
 

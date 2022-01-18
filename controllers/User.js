@@ -7,7 +7,7 @@ const loginPage = (req, res) => {
     res.render('pages/user/login');
 }
 const dashboardPage = (req, res) => {
-    res.render('pages/user/dashboard', {layout: 'layout/dashboard'});
+    res.render('pages/management/dashboard', {layout: 'layout/dashboard'});
 }
 
 const createProcess = async (req, res) => {

@@ -5,7 +5,26 @@
     <title><%- locals.title  %> </title>
 </head>
 <body>
-    <%- body %> 
+    <div class="container-fluid my-2">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="p-2 rounded border bg-light shadow">
+                    <%- include('./man-partials/header.ejs')  %> 
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <%- include('./man-partials/left-menu.ejs')  %> 
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="p-2 rounded border bg-white">
+                                <%- body %> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <%- include('./partials/scripts.ejs') %> 
 </body>
 </html>

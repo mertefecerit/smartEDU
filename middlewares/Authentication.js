@@ -6,7 +6,7 @@ const authorization = (req, res, next) => {
 }
 
 const hasLoggedIn = (req, res, next) => {
-    global.user = req.session.user || false;
+    global.sessionUser = req.session.user || false;
     next();
 }
 

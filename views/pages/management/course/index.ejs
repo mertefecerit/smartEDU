@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-lg-4">
+        <form action="/user/management/course" method="post">
+            <input name="name" type="text" placeholder="Course Name" class="form-control mb-2">
+            <textarea name="desc" placeholder="Course Description" class="form-control mb-2"></textarea>
+            <% if (categories.length > 0) { %>
+                <select name="category" class="form-select mb-2">
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category.id %>"><%= category.name %> </option>
+                    <% }) %>
+                </select>
+            <% } else { %>
+                 <div class="alert alert-warning">
+                     Please first add category
+                 </div>
+            <% } %>
+            <button class="btn btn-danger fw-bold w-100"><i class="fas fa-save"></i> Kaydet</button>
+        </form>
+    </div>
+    <div class="col-lg-8">
+        <ul class="list-group">
+            <% if (courses.length > 0) { %>
+                <% courses.forEach(course => { %>
+                    <li class="list-group-item"><%= course.name %> </li>
+                <% }) %>
+            <% } else { %>
+                <li>Ops.. There is not any registered data just yet</li>
+            <% } %>
+        </ul>
+    </div>
+</div>

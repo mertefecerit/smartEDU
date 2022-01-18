@@ -20,11 +20,20 @@ const UserSchema = new Schema({
         type:String,
         required: true,
         trim: true,
+    },
+    role:{
+        type: String,
+        enum:['admin','teacher','student'],
+        default:'student'
     }
 },{versionKey:false, timestamps:true});
 
 UserSchema.pre('save', function(next){
     const user = this;
+    // Coyote catcher :D
+    if(user.role === 'admin'){
+        user.role = 'student'
+    }
     bcrypt.hash(user.password, 10, (err, hash) => {
         if(err) throw err;
         user.password = hash;

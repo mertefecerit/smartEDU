@@ -8,6 +8,7 @@ const list = async (req, res) => {
     if(req.session.user.role === 'teacher'){
         parameters = {user:req.session.user._id};
     } else {
+        // if admin logged in need this query;
         teachers = await UserService.getTeachers();
     }
     try{

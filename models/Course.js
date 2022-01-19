@@ -37,4 +37,16 @@ CourseSchema.pre('validate', function(next){
     next();
 });
 
+// VERY IMPORTANT SECTION :D
+CourseSchema.pre('findOneAndUpdate', function(next){
+    this._update.slug = slugify(this._update.name,{
+        replacement: '-',
+        lower: true,
+        strict: true,
+        trim: true
+    });
+    next();
+});
+// VERY IMPORTANT SECTION :D
+
 module.exports = Mongoose.model('Course', CourseSchema);

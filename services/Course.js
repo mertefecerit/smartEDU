@@ -16,14 +16,14 @@ const read = async (id) => {
 }
 const readAll = async (parameters) => {
     try {
-        return await CourseModel.find(parameters);
+        return await CourseModel.find(parameters).populate('user');
     } catch (error) {
         console.log(error);
     } 
 }
 const update = async (id, payload) => {
     try {
-        return await CourseModel.findByIdAndUpdate(id, payload);
+        await CourseModel.findOneAndUpdate({_id:id},payload);
     } catch (error) {
         console.log(error);
     }  

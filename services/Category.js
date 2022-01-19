@@ -13,7 +13,11 @@ const update = async (payload) => {
     return await CategoryModel.updateOne(payload);
 }
 const deleteOne = async (id) => {
-    return await CategoryModel.findIdAndDelete(id);
+    try {
+        return await CategoryModel.findByIdAndDelete(id);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 module.exports = {

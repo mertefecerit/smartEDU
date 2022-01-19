@@ -1,15 +1,25 @@
-<div class="row">
+<div class="row text-secondary">
     <div class="col-lg-4">
+        <h3>New Category Form</h3>
+        <hr>
         <form action="/user/management/category" method="post">
             <input name="name" type="text" placeholder="Course Name" class="form-control mb-2">
             <button class="btn btn-danger fw-bold w-100"><i class="fas fa-save"></i> Kaydet</button>
         </form>
     </div>
     <div class="col-lg-8">
+        <h3>Category List</h3>
+        <hr>
         <ul class="list-group">
             <% if (categories.length > 0) { %>
                 <% categories.forEach(category => { %>
-                    <li class="list-group-item"><%= category.name %> </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= category.name %> 
+                        <div class="d-flex gap-2 align-items-center">
+                            <a href="#" class="btn btn-primary fw-bold btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="/user/management/category/<%= category.id %>" class="btn btn-danger fw-bold btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                        </div>
+                    </li>
                 <% }) %>
             <% } else { %>
                 <li>Ops.. There is not any registered data just yet</li>

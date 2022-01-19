@@ -4,15 +4,22 @@ const list = async (req, res) => {
     res.render('pages/management/category',{layout: 'layout/dashboard', categories});
 }
 const create = async (req, res) => {
-    try{
-        await CategoryService.insert(req.body);
-        res.redirect('/user/management/category');
-    }catch(err){
-        res.render(400).send('An Error Occurred. : ' + err);
-    }
+    await CategoryService.insert(req.body);
+    res.redirect('/user/management/category');
+}
+
+const deleteOne = async (req, res) => {
+    await CategoryService.deleteOne(req.params.id);
+    res.redirect('/user/management/category');
+}
+
+const update = async (req, res) => {
+    
 }
 
 module.exports = {
     list,
-    create
+    create,
+    update,
+    deleteOne
 }

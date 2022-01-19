@@ -28,9 +28,8 @@ app.use(Authentication.hasLoggedIn);
 
 //Routers
 app.use('/', Routers.PublicRouter);
-//app.use('/courses',Routers.CourseRouter);
-//app.use('/categories',Routers.CategoryRouter);
 app.use('/user',Routers.UserRouter);
+app.use('/user/management',Authentication.authorization, Routers.ManagementRouter);
 
 
 app.listen(process.env.APP_PORT, () => {

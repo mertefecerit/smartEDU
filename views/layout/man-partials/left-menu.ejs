@@ -1,5 +1,14 @@
 <ul class="list-group">
-    <a href="#" class="list-group-item list-group-item-action disabled" disabled>Management</a>
-    <a href="/user/management/course" class="list-group-item list-group-item-action"><i class="fas fa-database"></i> Courses</a>
-    <a href="/user/management/category" class="list-group-item list-group-item-action"><i class="fas fa-database"></i> Category</a>
+    <% if (sessionUser.role !== 'student') { %>
+        <a href="#" class="list-group-item list-group-item-action disabled" disabled>Management</a>
+        <a href="/user/management/course" class="list-group-item list-group-item-action"><i class="fas fa-database"></i> Courses</a>
+        <% if (sessionUser.role === 'admin') { %>
+            <a href="/user/management/category" class="list-group-item list-group-item-action"><i class="fas fa-database"></i> Category</a>
+        <% } %> 
+    <% } else { %>
+        <a href="#" class="list-group-item list-group-item-action disabled" disabled>Categories</a>
+        <% categories.forEach(category => { %>
+            <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-play"></i> <%= category.name %> </a>
+        <% }) %>
+    <% } %>    
 </ul>

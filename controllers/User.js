@@ -1,4 +1,5 @@
 const UserService = require('../services/User');
+const CategoryService = require('../services/Category');
 
 const registerPage = (req, res) => {
     res.render('pages/user/register');
@@ -6,8 +7,9 @@ const registerPage = (req, res) => {
 const loginPage = (req, res) => {
     res.render('pages/user/login');
 }
-const dashboardPage = (req, res) => {
-    res.render('pages/management/dashboard', {layout: 'layout/dashboard'});
+const dashboardPage = async (req, res) => {
+    const categories = await CategoryService.readAll();
+    res.render('pages/management/dashboard', {layout: 'layout/dashboard', categories});
 }
 
 const createProcess = async (req, res) => {

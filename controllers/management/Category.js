@@ -13,12 +13,19 @@ const deleteOne = async (req, res) => {
     res.redirect('/user/management/category');
 }
 
+const edit = async (req, res) => {
+    const category = await CategoryService.read(req.params.id);
+    res.render('pages/management/category/edit',{layout:'layout/dashboard',category});
+}
+
 const update = async (req, res) => {
-    
+    await CategoryService.update(req.body);
+    res.redirect('/user/management/category');
 }
 
 module.exports = {
     list,
+    edit,
     create,
     update,
     deleteOne

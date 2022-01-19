@@ -1,0 +1,10 @@
+<div class="row justify-content-center align-items-center">
+    <div class="col-lg-4">
+        <h3 class="text-center">Update Category Form</h3>
+        <hr>
+        <form action="/user/management/category/update/<%= category.id %>" method="POST">
+            <input class="form-control mb-2" type="text" name="name" value="<%= category.name %>" placeholder="Category Name" required>
+            <button class="btn btn-sm w-100 fw-bold btn-success"><i class="fas fa-sync-alt"></i> Update</button>
+        </form>
+    </div>
+</div>

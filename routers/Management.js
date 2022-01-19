@@ -8,9 +8,10 @@ router.post('/course', ManagementCourseController.create);
 
 //Category Management Routes
 router.get('/category', ManagementCategoryController.list);
+router.get('/category/edit/:id', ManagementCategoryController.edit);
+router.get('/category/delete/:id', ManagementCategoryController.deleteOne);
 router.post('/category', ManagementCategoryController.create);
-router.get('/category/:id', ManagementCategoryController.deleteOne);
-router.post('/category/:id', ManagementCategoryController.update);
+router.post('/category/update/:id', ManagementCategoryController.update);
 
 
 module.exports = router

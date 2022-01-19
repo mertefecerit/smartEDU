@@ -3,8 +3,8 @@ const CategoryModel = require('../models/Category');
 const insert = async (payload) => {
     return await CategoryModel.create(payload);
 }
-const read = async (slug) => {
-    return await CategoryModel.findOne({slug});
+const read = async (id) => {
+    return await CategoryModel.findById(id);
 }
 const readAll = async () => {
     return await CategoryModel.find();

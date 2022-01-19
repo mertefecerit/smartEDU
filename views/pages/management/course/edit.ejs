@@ -1,0 +1,22 @@
+<div class="row justify-content-center align-items-center">
+    <div class="col-lg-4">
+        <h3 class="text-center">Update Course Form</h3>
+        <hr>
+        <form action="/user/management/course/update/<%= course.id %>" method="POST">
+            <input class="form-control mb-2" type="text" name="name" value="<%= course.name %>" placeholder="Category Name" required>
+            <textarea name="desc" placeholder="Course Description" class="form-control mb-2"><%= course.desc %></textarea>
+            <% if (categories.length > 0) { %>
+                <select name="category" class="form-select mb-2">
+                    <% categories.forEach(category => { %>
+                        <option <%= category.id == course.category ? 'selected' : '' %> value="<%= category.id %>"><%= category.name %> </option>
+                    <% }) %>
+                </select>
+            <% } else { %>
+                 <div class="alert alert-warning">
+                     Please first add category
+                 </div>
+            <% } %>
+            <button class="btn btn-sm w-100 fw-bold btn-success"><i class="fas fa-sync-alt"></i> Update</button>
+        </form>
+    </div>
+</div>

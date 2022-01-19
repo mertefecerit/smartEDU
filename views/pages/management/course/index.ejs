@@ -14,6 +14,13 @@
                      Please first add category
                  </div>
             <% } %>
+            <% if (teachers.length > 0) { %>
+                <select name="user" class="form-select mb-2">
+                    <% teachers.forEach(teacher => { %>
+                        <option value="<%= teacher.id %>"><%= teacher.name %></option>
+                    <% }) %>
+                </select>
+            <% } %>
             <button class="btn btn-danger fw-bold w-100" <%= categories.length > 0?'':'disabled' %> ><i class="fas fa-save"></i> Kaydet</button>
         </form>
     </div>

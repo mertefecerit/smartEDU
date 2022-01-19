@@ -1,16 +1,34 @@
 const CategoryModel = require('../models/Category');
 
 const insert = async (payload) => {
-    return await CategoryModel.create(payload);
+    try {
+        return await CategoryModel.create(payload);
+    } catch (error) {
+        console.log(error);
+    }
 }
 const read = async (id) => {
-    return await CategoryModel.findById(id);
+    try {
+        return await CategoryModel.findById(id);
+    } catch (error) {
+        console.log(error);
+    }
 }
 const readAll = async () => {
-    return await CategoryModel.find();
+    try {
+        return await CategoryModel.find();
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
-const update = async (payload) => {
-    return await CategoryModel.updateOne(payload);
+const update = async (id, payload) => {
+    try {
+        return await CategoryModel.findByIdAndUpdate(id, payload);
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
 const deleteOne = async (id) => {
     try {

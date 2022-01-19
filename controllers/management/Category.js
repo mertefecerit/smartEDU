@@ -19,7 +19,7 @@ const edit = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    await CategoryService.update(req.body);
+    await CategoryService.update(req.params.id, req.body);
     res.redirect('/user/management/category');
 }
 

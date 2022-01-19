@@ -3,8 +3,12 @@
         <div class="col-lg-4">
             <div class="p-2 rounded border bg-light">
                 <h6>Login Page</h6>
-                <form action="" method="post">
-                    <input name="email" type="email" class="form-control mb-2" placeholder="Email" value="mert@ildam.com.tr">
+                <form action="/user/login<%  %> " method="post">
+                    <select name="email" class="form-select mb-2">
+                        <option value="admin@example.com">admin@example.com</option>
+                        <option value="teacher@example.com">teacher@example.com</option>
+                        <option value="student@example.com">student@example.com</option>
+                    </select>
                     <input name="password" type="password" class="form-control mb-2" placeholder="Password" value="2150">
                     <div class="d-flex justify-content-end align-items-center">
                         <button class="btn btn-primary fw-bold"><i class="fas fa-sign-in"></i> Login</button>

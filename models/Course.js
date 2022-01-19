@@ -5,7 +5,6 @@ const Schema = Mongoose.Schema;
 const CourseSchema = new Schema({
     name: {
         type: String,
-        unique: true,
         required: true,
         trim:true
     },
@@ -21,6 +20,10 @@ const CourseSchema = new Schema({
     category: {
         type: Mongoose.Schema.Types.ObjectId,
         ref: 'Category'
+    },
+    user: {
+        type: Mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 },{versionKey:false, timestamps:true});
 

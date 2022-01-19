@@ -1,19 +1,39 @@
 const CourseModel = require('../models/Course');
 
 const insert = async (payload) => {
-    return await CourseModel.create(payload);
+    try {
+        return await CourseModel.create(payload);
+    } catch (error) {
+        console.log(error);
+    }
 }
 const read = async (id) => {
-    return await CourseModel.findById(id);
+    try {
+        return await CourseModel.findById(id);
+    } catch (error) {
+        console.log(error);
+    }
 }
-const readAll = async () => {
-    return await CourseModel.find();
+const readAll = async (parameters) => {
+    try {
+        return await CourseModel.find(parameters);
+    } catch (error) {
+        console.log(error);
+    } 
 }
-const update = async (payload) => {
-    return await CourseModel.updateOne(payload);
+const update = async (id, payload) => {
+    try {
+        return await CourseModel.findByIdAndUpdate(id, payload);
+    } catch (error) {
+        console.log(error);
+    }  
 }
 const deleteOne = async (id) => {
-    return await CourseModel.findByIdAndDelete(id);
+    try {
+        return await CourseModel.findByIdAndDelete(id);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 module.exports = {

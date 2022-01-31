@@ -10,7 +10,14 @@
          <div class="col-lg-8">
             <h2>Description</h2>
             <p class="card-text"><%= course.desc %> </p>
-            <a href="#" class="btn btn-primary">Enroll</a>
+            <form action="" method="post">
+                <input name="courseId" type="hidden" value="<%= course.id %>">
+                <% if (user.role === 'student') { %>
+                    <button type="submit" class="btn btn-primary">Enroll</button>
+                <% } else { %>
+                    <small class="text-secondary"><i class="fas fa-exclamation"></i> Only Students can be enroll courses</small>
+                <% } %>
+            </form>
          </div>
     </div>
 </div>

@@ -20,7 +20,7 @@ const isTeacherOrAdmin = (req, res, next) => {
 }
 
 const hasLoggedIn = (req, res, next) => {
-    global.sessionUser = req.session.user || false;
+    res.locals.user = req.session.user || false;
     next();
 }
 

@@ -13,11 +13,20 @@ const coursesPage = async (req, res) => {
         title: 'Courses',
         courses
     }
-
     res.render('pages/courses',locals);
+}
+
+const coursePage = async (req, res) => {
+    const course = await CourseService.readBySlug(req.params.slug);
+    const locals = {
+        title: course.title,
+        course
+    }
+    res.render('pages/course',locals);
 }
 
 module.exports = {
     homepage,
-    coursesPage
+    coursesPage,
+    coursePage
 }

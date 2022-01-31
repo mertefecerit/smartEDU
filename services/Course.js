@@ -7,6 +7,13 @@ const insert = async (payload) => {
         console.log(error);
     }
 }
+const readBySlug = async (slug) => {
+    try {
+        return await CourseModel.findOne({slug});
+    } catch (error) {
+        console.log(error);
+    }
+}
 const read = async (id) => {
     try {
         return await CourseModel.findById(id);
@@ -46,6 +53,7 @@ const deleteOne = async (id) => {
 module.exports = {
     insert,
     read,
+    readBySlug,
     readAll,
     update,
     deleteOne,

@@ -12,8 +12,13 @@ const getTeachers = async () => {
     return await UserModel.find({role:'teacher'});
 }
 
+const getStudents = async () => {
+    return await UserModel.find({role:'student'});
+}
+
 module.exports = {
     insert,
     read,
-    getTeachers
+    getTeachers,
+    getStudents
 }

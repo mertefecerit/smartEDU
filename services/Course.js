@@ -14,6 +14,13 @@ const read = async (id) => {
         console.log(error);
     }
 }
+const getAllPublic = async () => {
+    try {
+        return await CourseModel.find();
+    } catch (error) {
+        console.log(error);
+    } 
+}
 const readAll = async (parameters) => {
     try {
         return await CourseModel.find(parameters).populate('user');
@@ -41,5 +48,6 @@ module.exports = {
     read,
     readAll,
     update,
-    deleteOne
+    deleteOne,
+    getAllPublic
 }

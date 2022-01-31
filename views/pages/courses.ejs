@@ -1,0 +1,16 @@
+<div class="container my-2 border bg-light p-3 rounded">
+    <div class="row">
+        <% courses.forEach(course => { %>
+         <div class="col-lg-3">
+           <div class="card">
+            <img src="https://via.placeholder.com/200x100" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title"><%= course.name %> </h5>
+              <p class="card-text"><%= course.desc %> </p>
+              <a href="#" class="btn btn-primary">Devam Et</a>
+            </div>
+           </div>
+         </div>
+        <% }) %>
+    </div>
+</div>

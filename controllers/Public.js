@@ -1,4 +1,5 @@
 const CourseService = require('../services/Course');
+const UserService = require('../services/User');
 
 const homepage = (req, res) => {
     const locals = {
@@ -25,8 +26,14 @@ const coursePage = async (req, res) => {
     res.render('pages/course',locals);
 }
 
+const enrollCourse = async (req, res) => {
+    await UserService.insertCourse(req.session.user._id, req.body.courseId);
+    res.redirect('/user/dashboard');
+}
+
 module.exports = {
     homepage,
     coursesPage,
-    coursePage
+    coursePage,
+    enrollCourse
 }

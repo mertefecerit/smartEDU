@@ -5,6 +5,13 @@ const authorization = (req, res, next) => {
     return res.redirect('/user/login');
 }
 
+const isStudent = (req, res, next) => {
+    if(req.session.user.role === 'student'){
+        return next();
+    }
+    return res.redirect('/user/login');
+}
+
 const isAdmin = (req, res, next) => {
     if(req.session.user.role === 'admin'){
         return next();
@@ -28,5 +35,6 @@ module.exports = {
     authorization,
     hasLoggedIn,
     isAdmin,
+    isStudent,
     isTeacherOrAdmin
 };

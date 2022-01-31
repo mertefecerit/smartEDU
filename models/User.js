@@ -38,11 +38,13 @@ UserSchema.pre('save', function(next){
     if(user.role === 'admin'){
         user.role = 'student'
     }
-    bcrypt.hash(user.password, 10, (err, hash) => {
-        if(err) throw err;
-        user.password = hash;
-        next();
-    });
+    if(user.isModified('password')){
+        bcrypt.hash(user.password, 10, (err, hash) => {
+            if(err) throw err;
+            user.password = hash;
+        });
+    }
+    next();
 });
 
 module.exports = Mongoose.model('User',UserSchema);

@@ -31,10 +31,18 @@ const hasLoggedIn = (req, res, next) => {
     next();
 }
 
+const isLoggedIn = (req, res, next) => {
+    if(req.session.user){
+        return res.redirect('/user/dashboard');
+    }
+    next();
+}
+
 module.exports = {
     authorization,
     hasLoggedIn,
     isAdmin,
     isStudent,
-    isTeacherOrAdmin
+    isTeacherOrAdmin,
+    isLoggedIn
 };

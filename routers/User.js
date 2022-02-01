@@ -3,10 +3,10 @@ const UserController = require('../controllers/User');
 const AuthController = require('../controllers/Auth');
 const Authentication = require('../middlewares/Authentication');
 
-router.get('/register',UserController.registerPage);
-router.post('/register',UserController.createProcess);
-router.get('/login',UserController.loginPage);
-router.post('/login',AuthController.login);
+router.get('/register',Authentication.isLoggedIn, UserController.registerPage);
+router.post('/register',Authentication.isLoggedIn, UserController.createProcess);
+router.get('/login', Authentication.isLoggedIn, UserController.loginPage);
+router.post('/login',Authentication.isLoggedIn, AuthController.login);
 router.get('/logout',AuthController.logout);
 
 //Authorization Area

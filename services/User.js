@@ -8,6 +8,10 @@ const read = async (email) => {
     return await UserModel.findOne({email:email});
 }
 
+const getCourses = async (id) => {
+    return await UserModel.findById(id).populate('courses');
+}
+
 const getTeachers = async () => {
     return await UserModel.find({role:'teacher'});
 }
@@ -34,5 +38,6 @@ module.exports = {
     read,
     getTeachers,
     getStudents,
-    insertCourse
+    insertCourse,
+    getCourses
 }

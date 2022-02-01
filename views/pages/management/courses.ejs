@@ -1,0 +1,20 @@
+<% if (myCourses) { %>
+    <div class="row">
+        <% myCourses.forEach(course => { %>
+            <div class="col-lg-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x100" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= course.name %></h5>
+                    <p class="card-text"><%= course.desc %></p>
+                    <a target="_blank" href="/courses/<%= course.slug %>" class="btn btn-primary">Devam Et</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+<% } else { %>
+     <div>
+         <p>Do not have any courses here</p>
+     </div>
+<% } %>

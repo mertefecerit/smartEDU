@@ -1,5 +1,5 @@
 const UserService = require('../services/User');
-const CategoryService = require('../services/Category');
+
 
 const registerPage = (req, res) => {
     res.render('pages/user/register');
@@ -8,8 +8,12 @@ const loginPage = (req, res) => {
     res.render('pages/user/login');
 }
 const dashboardPage = async (req, res) => {
-    const categories = await CategoryService.readAll();
-    res.render('pages/management/dashboard', {layout: 'layout/dashboard', categories});
+    res.render('pages/management/dashboard', {layout: 'layout/dashboard'});
+}
+
+const myCoursesPage = async (req, res) => {
+    const myCourses = await UserService.getCourses(req.session.user._id);
+    res.render('pages/management/courses',{layout: 'layout/dashboard', myCourses: myCourses.courses})
 }
 
 const createProcess = async (req, res) => {
@@ -25,5 +29,6 @@ module.exports = {
     registerPage,
     loginPage,
     createProcess,
-    dashboardPage
+    dashboardPage,
+    myCoursesPage
 }

@@ -11,5 +11,6 @@ router.get('/logout',AuthController.logout);
 
 //Authorization Area
 router.get('/dashboard', Authentication.authorization, UserController.dashboardPage);
+router.get('/courses',Authentication.authorization, Authentication.isStudent, UserController.myCoursesPage);
 
 module.exports = router;

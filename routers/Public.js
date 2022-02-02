@@ -6,5 +6,5 @@ router.route('/').get(PublicController.homepage);
 router.route('/courses').get(PublicController.coursesPage);
 router.route('/courses/:slug').get(PublicController.coursePage);
 router.route('/courses/:slug').post(Authentication.authorization, Authentication.isStudent, PublicController.enrollCourse);
-
+router.route('/search').get(PublicController.searchPage)
 module.exports = router;

@@ -50,6 +50,15 @@ const deleteOne = async (id) => {
     }
 }
 
+const readBySearch = async (query) => {
+    console.log(query);
+    try {
+        return await CourseModel.find({name: {$regex: '.*' + query + '.*', $options: 'i'}});
+    } catch (error) {
+        console.log(error);
+    } 
+} 
+
 module.exports = {
     insert,
     read,
@@ -57,5 +66,6 @@ module.exports = {
     readAll,
     update,
     deleteOne,
-    getAllPublic
+    getAllPublic,
+    readBySearch
 }

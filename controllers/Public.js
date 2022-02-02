@@ -31,9 +31,19 @@ const enrollCourse = async (req, res) => {
     res.redirect('/user/dashboard');
 }
 
+const searchPage = async (req, res) => {
+    const courses = await CourseService.readBySearch(req.query.query);
+    const locals = {
+        title: 'Courses',
+        courses
+    }
+    res.render('pages/courses',locals);
+}
+
 module.exports = {
     homepage,
     coursesPage,
     coursePage,
-    enrollCourse
+    enrollCourse,
+    searchPage
 }

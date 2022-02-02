@@ -1,4 +1,14 @@
 <div class="container my-2 border bg-light p-3 rounded">
+  <div class="row justify-content-center my-3">
+    <div class="col-lg-4">
+      <form action="/search" method="get">
+        <div class="input-group">
+          <input name="query" type="text" class="form-control" placeholder="Search Course">
+          <button class="btn btn-primary fw-bold"><i class="fas fa-search"></i> Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
     <div class="row">
         <% courses.forEach(course => { %>
          <div class="col-lg-3">

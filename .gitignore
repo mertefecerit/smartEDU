@@ -4,3 +4,4 @@ node_modules/
 *.jpg
 *.jpeg
 .DS_Store
+.idea

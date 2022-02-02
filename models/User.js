@@ -39,10 +39,7 @@ UserSchema.pre('save', function(next){
         user.role = 'student'
     }
     if(user.isModified('password')){
-        bcrypt.hash(user.password, 10, (err, hash) => {
-            if(err) throw err;
-            user.password = hash;
-        });
+        user.password = bcrypt.hashSync(user.password, 10);
     }
     next();
 });

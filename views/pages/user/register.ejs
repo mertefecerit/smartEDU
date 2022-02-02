@@ -3,6 +3,15 @@
         <div class="col-lg-4">
             <div class="p-2 rounded border bg-light">
                 <h6>Register User</h6>
+                <% if (messages.length > 0) { %>
+                    <div class="alert alert-danger my-2">
+                        <ul class="mb-0">
+                            <% messages[0].errors.forEach(error => { %>
+                             <li><%= error.msg %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                   <% } %>
                 <form action="" method="post">
                     <input type="text" name="name" class="form-control mb-2" placeholder="User Name">
                     <input type="email" name="email" class="form-control mb-2" placeholder="Email">

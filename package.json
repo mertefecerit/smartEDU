@@ -24,6 +24,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-flash-message": "^2.1.0",
     "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
     "mongoose": "^6.1.6",
     "slugify": "^1.6.5"
   },

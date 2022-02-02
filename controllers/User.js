@@ -1,8 +1,10 @@
 const UserService = require('../services/User');
 
 
-const registerPage = (req, res) => {
-    res.render('pages/user/register');
+const registerPage = async (req, res) => {
+    const messages = await req.consumeFlash('fail');
+    console.log(messages[0]);
+    res.render('pages/user/register',{messages});
 }
 const loginPage = async (req, res) => {
     const messages = await req.consumeFlash('fail');

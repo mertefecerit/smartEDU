@@ -3,6 +3,11 @@
         <div class="col-lg-4">
             <div class="p-2 rounded border bg-light">
                 <h6>Login Page</h6>
+                <% if (messages.length > 0) { %>
+                 <div class="alert alert-danger my-2">
+                     <p class="mb-0"><%= messages[0] %> </p>
+                 </div>
+                <% } %>
                 <form action="/user/login<%  %> " method="post">
                     <select name="email" class="form-select mb-2">
                         <option value="admin@example.com">admin@example.com</option>

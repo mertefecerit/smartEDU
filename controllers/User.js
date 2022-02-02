@@ -4,8 +4,9 @@ const UserService = require('../services/User');
 const registerPage = (req, res) => {
     res.render('pages/user/register');
 }
-const loginPage = (req, res) => {
-    res.render('pages/user/login');
+const loginPage = async (req, res) => {
+    const messages = await req.consumeFlash('fail');
+    res.render('pages/user/login',{messages});
 }
 const dashboardPage = async (req, res) => {
     res.render('pages/management/dashboard', {layout: 'layout/dashboard'});

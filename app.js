@@ -5,6 +5,7 @@ const expressLayouts = require('express-ejs-layouts');
 const Routers = require('./routers');
 const session = require('express-session');
 const Authentication = require('./middlewares/Authentication');
+const {flash} = require('express-flash-message');
 
 const app = express();
 
@@ -26,11 +27,14 @@ app.use(session({
 }));
 
 app.use(Authentication.hasLoggedIn);
+app.use(flash({ sessionKeyName: 'flashMessage' }));
+
+
 
 //Routers
 app.use('/', Routers.PublicRouter);
-app.use('/user',Routers.UserRouter);
-app.use('/user/management',Authentication.authorization, Routers.ManagementRouter);
+app.use('/user', Routers.UserRouter);
+app.use('/user/management', Authentication.authorization, Routers.ManagementRouter);
 
 
 app.listen(process.env.APP_PORT, () => {
